@@ -1,7 +1,9 @@
 package com.ust.CustomerService.controller;
 
+import com.ust.CustomerService.model.Bookorder;
 import com.ust.CustomerService.model.Customer;
 //import com.ust.CustomerService.service.CustomerService;
+import com.ust.CustomerService.repo.FeignClientOrder;
 import com.ust.CustomerService.service.Customerservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +58,14 @@ public class CustomerController {
     @GetMapping("/byname/{name}")
     public List<Customer> getCustomersByName(@PathVariable String name) {
         return customerService.findByName(name);
+    }
+
+    @Autowired
+    private FeignClientOrder feignClientOrder;
+
+    @GetMapping("/getorders/{cid}")
+    public List<Bookorder> getallorders(@PathVariable Long cid) {
+        return feignClientOrder.getallorders(cid);
     }
 }
 

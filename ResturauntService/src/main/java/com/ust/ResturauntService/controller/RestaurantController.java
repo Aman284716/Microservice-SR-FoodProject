@@ -1,6 +1,8 @@
 package com.ust.ResturauntService.controller;
 
 import com.ust.ResturauntService.model.Restaurant;
+import com.ust.ResturauntService.model.Review;
+import com.ust.ResturauntService.repo.ReviewFeign;
 import com.ust.ResturauntService.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -51,5 +53,11 @@ public class RestaurantController {
         return ResponseEntity.ok().build();
     }
 
+    @Autowired
+    private ReviewFeign feignClientReview;
 
+    @GetMapping("/getreview/{cid}")
+    public List<Review> getallorders(@PathVariable Long cid) {
+        return feignClientReview.getallreview(cid);
+    }
 }

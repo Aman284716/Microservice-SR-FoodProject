@@ -2,11 +2,16 @@ package com.ust.CustomerService.service;
 
 
 import com.netflix.discovery.converters.Auto;
+import com.ust.CustomerService.model.Bookorder;
 import com.ust.CustomerService.model.Customer;
 //import com.ust.CustomerService.repo.CustomerRepository;
 import com.ust.CustomerService.repo.Customerrepo;
+import com.ust.CustomerService.repo.FeignClientOrder;
+import jakarta.ws.rs.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -55,4 +60,6 @@ public class Customerservice {
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
     }
+
+
 }

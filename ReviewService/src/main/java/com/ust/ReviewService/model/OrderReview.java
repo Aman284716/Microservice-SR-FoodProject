@@ -19,6 +19,5 @@ public class OrderReview {
     private Long customerId;
     private Long orderId;
     private String review;
-
 }
 
