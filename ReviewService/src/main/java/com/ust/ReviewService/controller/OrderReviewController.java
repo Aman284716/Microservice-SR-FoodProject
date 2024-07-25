@@ -17,12 +17,10 @@ public class OrderReviewController {
     public OrderReviewController(OrderReviewService orderReviewService) {
         this.orderReviewService = orderReviewService;
     }
-
     @GetMapping("/customer/{customerId}")
     public List<OrderReview> getOrderReviewsByCustomerId(@PathVariable Long customerId) {
         return orderReviewService.findByCustomerId(customerId);
     }
-
     @PostMapping("/addAll")
     public List<OrderReview> addAllReviews(@RequestBody List<OrderReview> reviews) {
         return orderReviewService.addAllReviews(reviews);
