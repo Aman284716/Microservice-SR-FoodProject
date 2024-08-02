@@ -14,7 +14,6 @@ public class FoodController {
     @Autowired
     OrderService orderService;
 
-
     @GetMapping
     public String getFoodList() {
         return "List of foods";
